@@ -72,7 +72,7 @@ echo "Done"
 #xcrun --sdk $PLATFORM_NAME lipo -create "${LIBSECP256K1_EXECUTABLES[@]}" -output "${BUILD_DIR}/libsecp256k1"
 
 popd
-mkdir build
+mkdir -p build
 cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=ios.toolchain.cmake -DPLATFORM=OS64
+cmake .. -DCMAKE_TOOLCHAIN_FILE=ios.toolchain.cmake -DPLATFORM=OS64 -DENABLE_VISIBILITY=1
 make all -j $num_jobs
